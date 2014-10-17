@@ -6,20 +6,25 @@ from scrapy.selector import Selector
 
 from jimome.items import JimomeItem
 
+from sqlalchemy import *
+from sqlalchemy.databases import mysql
+
 class JimomeSpider(Spider):
     name = "jimome"
-    # allowrd_domains = ["youyuan.com"]
-    # start_urls = urls
-    # for user_id in [2000000000, 2100000000]:
-    #     url = "http://www.youyuan.com/%s-profile/" % user_id
-    #     start_urls.append(url)
 
-    start_urls = [
-        "http://www.youyuan.com/221939507-profile/"
-    ]
+    # start_urls = [
+    #     "http://www.youyuan.com/221939507-profile/"
+    # ]
+
+    def __init__(self, user_id=None, *args, **kwargs):
+        super(JimomeSpider, self).__init__(*args, **kwargs)
+        self.start_urls = ["http://www.youyuan.com/%s-profile/" % user_id]
 
     def parse(self, response):
-        filename = response.url.split("/")[-2]
+        # filename = response.url.split("/")[-2]
+
+        
+        
         sel = Selector(response)
         # with open(filename, 'wb') as f:
 
@@ -68,6 +73,17 @@ class JimomeSpider(Spider):
         for sel in response.xpath("//div[@class='message']/ol/li/span"):
             nick = sel.xpath("text()").extract()[0].encode('utf-8')
             print "nick", nick
+
+        data_handle = DataHandle()
+
+class DataHandle():
+
+    def __init__(self):
+        self.mysql_engine = create_engine('mysql://jiaoyou:jiaoyou11_@laoshurds.mysql.rds.aliyuncs.com/jiaoyou')
+        self.mysql_engine.connect()
+
+        print "conn", self.mysql_engine
+
 
         
 
