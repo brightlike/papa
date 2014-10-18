@@ -7,22 +7,23 @@
 
 import scrapy
 
-
 class JimomeItem(scrapy.Item):
     # define the fields for your item here like:
+
+    icon = scrapy.Field()
     nick = scrapy.Field()
-    place = scrapy.Field()
+
+    province = scrapy.Field()
+    city = scrapy.Field()
     age = scrapy.Field()
     height = scrapy.Field()
     salary = scrapy.Field()
     has_house = scrapy.Field()
-    flags = scrapy.Field()
-    icon_url = scrapy.Field()
-    icon = scrapy.Field()
 
-    photo_url = scrapy.Field()
-    photo = scrapy.Field()
+    hobbies = scrapy.Field()
+    pesonalitys = scrapy.Field()
 
+    photos = scrapy.Field()
     intro = scrapy.Field()
 
     weight = scrapy.Field()
@@ -36,11 +37,6 @@ class JimomeItem(scrapy.Item):
     accept_with_parents = scrapy.Field()
     glamour_place = scrapy.Field()
 
-    province = scrapy.Field()
-    age_range = scrapy.Field()
-    height_range = scrapy.Field()
-    require_education = scrapy.Field()
-    require_salary = scrapy.Field()
     
 
     
