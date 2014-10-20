@@ -17,11 +17,12 @@ class JimomeItem(scrapy.Item):
     city = scrapy.Field()
     age = scrapy.Field()
     height = scrapy.Field()
+    height_key = scrapy.Field()
     salary = scrapy.Field()
     has_house = scrapy.Field()
 
     hobbies = scrapy.Field()
-    pesonalitys = scrapy.Field()
+    personalitys = scrapy.Field()
 
     photos = scrapy.Field()
     intro = scrapy.Field()

@@ -679,7 +679,7 @@ EDUCATION = {
     u'硕士及以上': '5'
 }
 
-WANGT_KITS = {
+WANT_KIDS = {
     u'保密': '0',
     u'想': '1',
     u'不想': '2',
