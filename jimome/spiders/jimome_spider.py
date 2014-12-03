@@ -206,7 +206,7 @@ class DataHandle():
     sys.setdefaultencoding('utf8') 
 
     def __init__(self, item):
-        self.mysql_engine = create_engine('mysql://jiaoyou:jiaoyou11_@laoshurds.mysql.rds.aliyuncs.com/jiaoyou')
+        self.mysql_engine = create_engine('mysql://****')
         self.mysql_engine.connect()
 
         Session=sessionmaker(bind=self.mysql_engine)
